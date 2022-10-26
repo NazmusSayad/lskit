@@ -7,8 +7,10 @@
     "dev": "tsc -p tsconfig-mjs.json -w",
     "build": "node build.js"
   },
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "This package will help you to get all the files that are inside a dir.",
+  "author": "https://github.com/NazmusSayad",
+  "license": "ISC",
   "dependencies": {},
   "devDependencies": {
     "typescript": "^4.8.4"
@@ -23,13 +25,6 @@
     "type": "git",
     "url": "git+https://github.com/NazmusSayad/get-files.git"
   },
-  "keywords": [
-    "glob",
-    "glob-patterns",
-    "get-all-files"
-  ],
-  "author": "Nazmus Sayad",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/NazmusSayad/get-files/issues"
   },
