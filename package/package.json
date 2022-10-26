@@ -1,0 +1,26 @@
+{
+  "name": "node-ls-files",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "This package will help you to get all the files that are inside a dir.",
+  "author": "https://github.com/NazmusSayad",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "./build/mjs/index.js",
+  "types": "./build/mjs/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./build/cjs/index.cjs",
+      "import": "./build/mjs/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NazmusSayad/node-ls-files.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NazmusSayad/node-ls-files/issues"
+  },
+  "homepage": "https://github.com/NazmusSayad/node-ls-files#readme"
+}

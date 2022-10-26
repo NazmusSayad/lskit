@@ -1,5 +1,5 @@
 console.clear()
-const getFiles = require('../package/index.cjs')
+const { default: getFiles } = require('../package/build/cjs/index.cjs')
 ;(async () => {
   const target = '.'
 

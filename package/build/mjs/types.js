@@ -1,5 +1,5 @@
 export const configDefault = {
-    excludeFolder: ['node_modules'],
+    excludeFolder: ['node_modules', '.git'],
     filter: false,
     maxSize: Infinity,
     minSize: 0,

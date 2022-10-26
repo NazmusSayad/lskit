@@ -1,5 +1,5 @@
 console.clear()
-import getFiles from '../package/index.mjs'
+import getFiles from '../package/build/mjs/index.js'
 ;(async () => {
   const target = '.'
 

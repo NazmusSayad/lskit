@@ -36,23 +36,24 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _GetFiles_instances, _GetFiles_worker;
 Object.defineProperty(exports, "__esModule", { value: true });
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const types = __importStar(require("./types.cjs"));
-let fs;
-let path;
 class GetFiles {
-    constructor({ fs: fsObj, path: pathObj }) {
+    constructor() {
         _GetFiles_instances.add(this);
-        fs = fsObj;
-        path = pathObj;
     }
     sync(targetDir, config) {
         const output = [];
         const read = (rootDir) => {
-            const files = fs.readdirSync(rootDir);
+            const files = fs_1.default.readdirSync(rootDir);
             files.forEach((content) => {
-                const stats = fs.lstatSync(path.join(rootDir, content));
+                const stats = fs_1.default.lstatSync(path_1.default.join(rootDir, content));
                 const newDir = __classPrivateFieldGet(this, _GetFiles_instances, "m", _GetFiles_worker).call(this, {
                     targetDir,
                     config,
@@ -72,9 +73,9 @@ class GetFiles {
         return __awaiter(this, void 0, void 0, function* () {
             const output = [];
             const read = (rootDir) => __awaiter(this, void 0, void 0, function* () {
-                const files = yield fs.promises.readdir(rootDir);
+                const files = yield fs_1.default.promises.readdir(rootDir);
                 for (let content of files) {
-                    const stats = yield fs.promises.lstat(path.join(rootDir, content));
+                    const stats = yield fs_1.default.promises.lstat(path_1.default.join(rootDir, content));
                     const newDir = __classPrivateFieldGet(this, _GetFiles_instances, "m", _GetFiles_worker).call(this, {
                         targetDir,
                         config,
@@ -97,17 +98,17 @@ _GetFiles_instances = new WeakSet(), _GetFiles_worker = function _GetFiles_worke
     if (stats.isDirectory()) {
         if (config.excludeFolder.includes(content))
             return;
-        return path.join(rootDir, content);
+        return path_1.default.join(rootDir, content);
     }
-    const fullPath = path.join(rootDir, content);
-    const relativePath = path.relative(targetDir, fullPath);
+    const fullPath = path_1.default.join(rootDir, content);
+    const relativePath = path_1.default.relative(targetDir, fullPath);
     let filePath = config.relative ? relativePath : fullPath;
     if (stats.size > config.maxSize || stats.size < config.minSize)
         return;
     if (config.filter instanceof RegExp && !config.filter.test(filePath))
         return;
     if (config.filter instanceof Function &&
-        !config.filter(path.parse(fullPath), relativePath, fullPath)) {
+        !config.filter(path_1.default.parse(fullPath), relativePath, fullPath)) {
         return;
     }
     if (config.separator) {
@@ -115,4 +116,4 @@ _GetFiles_instances = new WeakSet(), _GetFiles_worker = function _GetFiles_worke
     }
     output.push(config.prefix + filePath + config.suffix);
 };
-exports.default = GetFiles;
+exports.default = new GetFiles();

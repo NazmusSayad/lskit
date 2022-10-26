@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.configDefault = void 0;
 exports.configDefault = {
-    excludeFolder: ['node_modules'],
+    excludeFolder: ['node_modules', '.git'],
     filter: false,
     maxSize: Infinity,
     minSize: 0,

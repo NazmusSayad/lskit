@@ -13,14 +13,12 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _GetFiles_instances, _GetFiles_worker;
+import fs from 'fs';
+import path from 'path';
 import * as types from './types.js';
-let fs;
-let path;
 class GetFiles {
-    constructor({ fs: fsObj, path: pathObj }) {
+    constructor() {
         _GetFiles_instances.add(this);
-        fs = fsObj;
-        path = pathObj;
     }
     sync(targetDir, config) {
         const output = [];
@@ -90,4 +88,4 @@ _GetFiles_instances = new WeakSet(), _GetFiles_worker = function _GetFiles_worke
     }
     output.push(config.prefix + filePath + config.suffix);
 };
-export default GetFiles;
+export default new GetFiles();

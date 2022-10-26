@@ -10,7 +10,7 @@ export interface Config {
 }
 
 export const configDefault: Config = {
-  excludeFolder: ['node_modules'],
+  excludeFolder: ['node_modules', '.git'],
   filter: false,
   maxSize: Infinity,
   minSize: 0,

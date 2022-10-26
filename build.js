@@ -5,7 +5,8 @@ import cmd from 'child_process'
 const mjs = 'tsc -p tsconfig-mjs.json'
 const cjs = 'tsc -p tsconfig-cjs.json'
 
-const buildDir = path.resolve('./build')
+const packageDir = path.resolve('./package')
+const buildDir = path.join(packageDir, './build')
 const cjsDir = path.join(buildDir, './cjs')
 
 const getCjs = (file) => {
@@ -18,6 +19,9 @@ if (fs.existsSync(buildDir)) {
   fs.rmSync(buildDir, { force: true, recursive: true })
 }
 
+console.log('Coping necessary files...')
+fs.copyFileSync('./README.md', packageDir + '/README.md')
+
 console.log('Build started....')
 
 cmd.execSync(mjs)
@@ -29,7 +33,7 @@ console.log('CommonJs build finished...')
 // Replace js => cjs
 ;(async () => {
   console.log("Replacing 'js' -> 'cjs'")
-  const { default: getFiles } = await import('./package/index.mjs')
+  const { default: getFiles } = await import('./package/build/mjs/index.js')
   const files = getFiles.sync(cjsDir, {
     relative: true,
     separator: '/',
