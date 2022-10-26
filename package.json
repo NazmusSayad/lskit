@@ -1,9 +1,37 @@
 {
+  "name": "get-files",
   "type": "module",
   "scripts": {
     "test": "nodemon test",
     "test-cjs": "nodemon test/index.cjs",
     "dev": "tsc -p tsconfig-mjs.json -w",
     "build": "node build.js"
-  }
+  },
+  "version": "0.0.0",
+  "description": "This package will help you to get all the files that are inside a dir.",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  },
+  "exports": {
+    ".": {
+      "require": "./package/index.cjs",
+      "import": "./package/index.mjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NazmusSayad/get-files.git"
+  },
+  "keywords": [
+    "glob",
+    "glob-patterns",
+    "get-all-files"
+  ],
+  "author": "Nazmus Sayad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NazmusSayad/get-files/issues"
+  },
+  "homepage": "https://github.com/NazmusSayad/get-files#readme"
 }
