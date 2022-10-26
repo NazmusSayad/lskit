@@ -1,5 +1,5 @@
 {
-  "name": "get-files",
+  "name": "node-ls-files",
   "type": "module",
   "scripts": {
     "test": "nodemon test",
@@ -23,10 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NazmusSayad/get-files.git"
+    "url": "git+https://github.com/NazmusSayad/node-ls-files.git"
   },
   "bugs": {
-    "url": "https://github.com/NazmusSayad/get-files/issues"
+    "url": "https://github.com/NazmusSayad/node-ls-files/issues"
   },
-  "homepage": "https://github.com/NazmusSayad/get-files#readme"
+  "homepage": "https://github.com/NazmusSayad/node-ls-files#readme"
 }
