@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "nodemon test",
+    "test-cjs": "nodemon test/index.cjs",
+    "dev": "tsc -p tsconfig-mjs.json -w",
+    "build": "node build.js"
+  }
+}
