@@ -3,7 +3,7 @@ import path from 'path'
 import * as types from './types.js'
 
 class GetFiles {
-  sync(targetDir: string, config: types.Config): string[] {
+  sync(targetDir: string, configInput?: types.ConfigOptional): string[] {
     const output: string[] = []
 
     const read = (rootDir: string) => {
@@ -13,7 +13,7 @@ class GetFiles {
         const stats = fs.lstatSync(path.join(rootDir, content))
         const newDir = this.#worker({
           targetDir,
-          config,
+          configInput,
           read,
           output,
           rootDir,
@@ -28,7 +28,10 @@ class GetFiles {
     return output
   }
 
-  async async(targetDir: string, config: types.Config): Promise<string[]> {
+  async async(
+    targetDir: string,
+    configInput?: types.ConfigOptional
+  ): Promise<string[]> {
     const output: string[] = []
 
     const read = async (rootDir: string) => {
@@ -38,7 +41,7 @@ class GetFiles {
         const stats = await fs.promises.lstat(path.join(rootDir, content))
         const newDir = this.#worker({
           targetDir,
-          config,
+          configInput,
           read,
           output,
           rootDir,
@@ -55,14 +58,17 @@ class GetFiles {
 
   #worker({
     targetDir,
-    config,
+    configInput,
     output,
     rootDir,
     content,
     stats,
   }: types.Worker) {
     // Set default config :)
-    config = Object.assign({ ...types.configDefault }, config)
+    const config: types.Config = Object.assign(
+      { ...types.configDefault },
+      configInput
+    )
 
     // If target is a dir then return the dir path
     if (stats.isDirectory()) {

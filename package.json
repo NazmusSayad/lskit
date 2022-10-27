@@ -1,6 +1,6 @@
 {
   "name": "node-ls-files",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This package will help you to get all the files that are inside a dir.",
   "main": "./dist/mjs/index.js",
   "types": "./dist/mjs/index.d.js",
