@@ -2,15 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import * as types from './types.js'
 
-// let fs: any
-// let path: any
-
 class GetFiles {
-  // constructor({ fs: fsObj, path: pathObj }: { fs: {}; path: {} }) {
-  //   // fs = fsObj
-  //   // path = pathObj
-  // }
-
   sync(targetDir: string, config: types.Config): string[] {
     const output: string[] = []
 

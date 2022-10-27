@@ -1,15 +1,37 @@
 {
-  "type": "module",
+  "name": "node-ls-files",
+  "version": "0.0.2",
+  "description": "This package will help you to get all the files that are inside a dir.",
+  "main": "./dist/mjs/index.js",
+  "types": "./dist/mjs/index.d.js",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/mjs/index.js"
+    }
+  },
   "scripts": {
-    "test": "nodemon test",
-    "test-cjs": "nodemon test/index.cjs",
-    "dev": "tsc -p tsconfig-mjs.json -w",
-    "build": "node build.js"
+    "cjs": "nodemon test/index.cjs",
+    "mjs": "nodemon test/index.mjs",
+    "dev": "node dist.js && tsc -p tsconfig-cjs.json -w",
+    "build": "node build.js",
+    "update": "node update.js"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^18.11.6",
-    "typescript": "^4.8.4",
-    "node-ls-files": "^0.0.1"
+    "@types/node": "latest",
+    "typescript": "latest",
+    "all-files-in-tree": "^1.1.2"
   },
-  "dependencies": {}
+  "type": "module",
+  "license": "ISC",
+  "author": "https://github.com/NazmusSayad",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NazmusSayad/node-ls-files.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NazmusSayad/node-ls-files/issues"
+  },
+  "homepage": "https://github.com/NazmusSayad/node-ls-files#readme"
 }

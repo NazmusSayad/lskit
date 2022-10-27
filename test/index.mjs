@@ -1,7 +1,8 @@
 console.clear()
-import getFiles from '../package/build/mjs/index.js'
+import path from 'path';
+import getFiles from '../dist/mjs/index.js'
 ;(async () => {
-  const target = '.'
+  const target = path.resolve('.')
 
   console.log(getFiles.sync(target))
   console.log(await getFiles.async(target))
