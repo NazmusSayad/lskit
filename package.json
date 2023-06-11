@@ -1,37 +1,24 @@
 {
-  "name": "node-ls-files",
-  "version": "0.0.3",
-  "description": "This package will help you to get all the files that are inside a dir.",
-  "main": "./dist/mjs/index.js",
-  "types": "./dist/mjs/index.d.js",
-  "exports": {
-    ".": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/mjs/index.js"
-    }
+  "name": "lskit",
+  "version": "0.0.1",
+  "devDependencies": {
+    "npm-ez": "^2.0.6",
+    "typescript": "^5.1.3"
   },
   "scripts": {
-    "cjs": "nodemon test/index.cjs",
-    "mjs": "nodemon test/index.mjs",
-    "dev": "node dist.js && tsc -p tsconfig-cjs.json -w",
-    "build": "node build.js",
-    "update": "node update.js"
+    "dev": "npm-ez dev",
+    "build": "npm-ez build"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@types/node": "latest",
-    "typescript": "latest",
-    "all-files-in-tree": "^1.1.2"
+  "main": "./dist-cjs/index.cjs",
+  "module": "./dist-mjs/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist-cjs/index.cjs",
+      "import": "./dist-mjs/index.mjs",
+      "types": "./dist-mjs/index.mts"
+    }
   },
-  "type": "module",
-  "license": "ISC",
-  "author": "https://github.com/NazmusSayad",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NazmusSayad/node-ls-files.git"
-  },
-  "bugs": {
-    "url": "https://github.com/NazmusSayad/node-ls-files/issues"
-  },
-  "homepage": "https://github.com/NazmusSayad/node-ls-files#readme"
+  "dependencies": {
+    "@types/node": "^20.3.0"
+  }
 }

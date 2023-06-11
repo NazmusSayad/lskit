@@ -1,6 +1,7 @@
+# npm-ez
 *
-!dist/**
-!assets/**
-!public/**
+!lib/**
+!dist-cjs/**
+!dist-mjs/**
 !package.json
 !README.md

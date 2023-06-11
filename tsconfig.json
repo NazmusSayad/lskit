@@ -1,28 +1,13 @@
 {
   "compilerOptions": {
+    "moduleResolution": "nodenext",
     "target": "es6",
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
-    "declaration": true,
-    "esModuleInterop": true,
-    "inlineSourceMap": false,
-    "lib": ["esnext", "dom"],
-    "listEmittedFiles": false,
-    "listFiles": false,
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "pretty": true,
-    "resolveJsonModule": true,
-    "rootDir": "src",
     "skipLibCheck": true,
+    "declaration": true,
+    "inlineSourceMap": false,
     "strict": true,
-    "traceResolution": false,
-    "strictNullChecks": true,
-    "removeComments": true,
-    "noImplicitAny": false,
-    "types": ["node"]
+    "pretty": true,
+    "removeComments": true
   },
-  "compileOnSave": false,
   "include": ["src"]
 }
